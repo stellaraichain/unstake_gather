@@ -1,5 +1,7 @@
 import bittensor as bt
 import os
+from dotenv import load_dotenv
+load_dotenv()
 sub = bt.Subtensor(network = "finney")
 
 to_sell = [0, 30, 44, 48] # list of netuids to unstake from
@@ -66,7 +68,7 @@ def unstake(wallet, netuid, alpha_amount, alpha_decrease):
 
 if __name__ == "__main__":
     wallet_hotkeys = get_wallets_and_hotkeys()
-    password = "ILoveMother1228"
+    password = os.getenv("PASSWORD")
 
     for wallet_name, hotkey_list in wallet_hotkeys.items():
         for hotkey in hotkey_list:
@@ -80,7 +82,7 @@ if __name__ == "__main__":
             except Exception as e:
                 print(f"❌ Error with wallet={wallet_name}, hotkey={hotkey}: {e}")
 
-    destination = "5GgpDcxpcxSZJ6VedUL8ruDb2XFXBuUdhXrnWGbaenH9PE6q"
+    destination = os.getenv("DESTINATION")
 
     for wallet_name in wallet_hotkeys:
         try:
