@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 load_dotenv()
 sub = bt.Subtensor(network = "finney")
 
-to_sell = [0, 30, 44, 48] # list of netuids to unstake from
+to_sell = [0, 30] # list of netuids to unstake from
 increment = 1 # amount of alpha to unstake
 total_sell = 0 # total amount of alpha unstaked
 stake = {} # dictionary to store the stake for each netuid
